@@ -19,8 +19,9 @@ const config: Config = {
   },
   url: siteBaseUrl,
   baseUrl: '/',
-  organizationName: 'o3o',
+  organizationName: 'o3o-ca',
   projectName: 'o3o-home',
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'throw',
   i18n: {
     defaultLocale: 'zh-Hans',
