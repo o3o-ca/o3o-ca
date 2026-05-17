@@ -1,0 +1,18 @@
+---
+id: community
+title: 我们的社区
+sidebar_position: 2
+---
+
+import {communities} from '@site/src/data/siteData';
+
+# 我们的社区
+
+{communities.map((item) => (
+  <section key={item.title}>
+    <h2>
+      <a href={item.href}>{item.title}</a>
+    </h2>
+    <p>{item.body}</p>
+  </section>
+))}

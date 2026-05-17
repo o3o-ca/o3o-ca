@@ -1,148 +1,136 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import {
+  absoluteSiteUrl,
+  policies,
+  siteBaseUrl,
+  siteDescription,
+} from './src/data/siteData';
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'O3O',
+  tagline: '自由的中文互联网社区',
+  titleDelimiter: ' | ',
+  noIndex: false,
   favicon: 'img/favicon.ico',
-
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
-
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: siteBaseUrl,
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
+  organizationName: 'o3o',
+  projectName: 'o3o-home',
   onBrokenLinks: 'throw',
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
-
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/favicon.ico',
+        sizes: 'any',
+      },
+    },
+  ],
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          routeBasePath: 'docs',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    metadata: [
+      {name: 'description', content: siteDescription},
+      {
+        name: 'keywords',
+        content:
+          'O3O, 中文互联网社区, 非盈利, 隐私, 去中心化, Fediverse, Mastodon, Matrix, WriteFreely, Searx, PrivateBin',
+      },
+      {property: 'og:title', content: 'O3O | 自由的中文互联网社区'},
+      {property: 'og:description', content: siteDescription},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:locale', content: 'zh_CN'},
+      {property: 'og:url', content: absoluteSiteUrl('/')},
+      {property: 'og:image', content: absoluteSiteUrl('/img/o3ofd_logo.png')},
+      {property: 'og:image:alt', content: 'O3O logo'},
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:title', content: 'O3O | 自由的中文互联网社区'},
+      {name: 'twitter:description', content: siteDescription},
+      {
+        name: 'twitter:image',
+        content: absoluteSiteUrl('/img/o3ofd_logo.png'),
+      },
+    ],
+    image: 'img/o3ofd_logo.png',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'My Site',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'O3O Logo',
+        src: 'img/o3ofd_logo.png',
       },
       items: [
+        {to: '/', label: '首页', position: 'left'},
+        {to: '/docs/about', label: '关于我们', position: 'left'},
+        {to: '/docs/community', label: '我们的社区', position: 'left'},
+        {to: '/docs/tools', label: '工具', position: 'left'},
+        {to: '/docs/donate', label: '捐助', position: 'left'},
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          href: policies.href,
+          label: '社区规则与隐私政策',
           position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
-          title: 'Docs',
+          title: 'O3O',
           items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
+            {label: '关于我们', to: '/docs/about'},
+            {label: '我们的社区', to: '/docs/community'},
+            {label: '工具', to: '/docs/tools'},
+            {label: '捐助', to: '/docs/donate'},
           ],
         },
         {
-          title: 'Community',
+          title: '链接',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: '社区规则与隐私政策',
+              href: policies.href,
             },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
+            {label: '联系', to: '/docs/contact'},
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} O3O`,
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.github,
     },
   } satisfies Preset.ThemeConfig,
 };

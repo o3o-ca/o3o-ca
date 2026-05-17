@@ -1,0 +1,18 @@
+---
+id: tools
+title: 工具
+sidebar_position: 3
+---
+
+import {tools} from '@site/src/data/siteData';
+
+# 工具
+
+{tools.map((item) => (
+  <section key={item.title}>
+    <h2>
+      <a href={item.href}>{item.title}</a>
+    </h2>
+    <p>{item.body}</p>
+  </section>
+))}

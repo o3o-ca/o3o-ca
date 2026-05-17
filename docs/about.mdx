@@ -1,0 +1,23 @@
+---
+id: about
+title: 关于我们
+sidebar_position: 1
+---
+
+import {hero, missionValues} from '@site/src/data/siteData';
+
+# 关于我们
+
+### {hero.eyebrow}
+
+{hero.lead}
+
+{hero.englishLead}
+
+## Mission & Values
+
+{missionValues.map((item) => (
+  <p key={item.title}>
+    <strong>{item.title}</strong>：{item.body}
+  </p>
+))}

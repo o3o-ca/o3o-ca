@@ -1,30 +1,115 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #ff5757;
+  --ifm-color-primary-dark: #f04f4f;
+  --ifm-color-primary-darker: #e54c4c;
+  --ifm-color-primary-darkest: #cf3f3f;
+  --ifm-color-primary-light: #ff6969;
+  --ifm-color-primary-lighter: #ff7373;
+  --ifm-color-primary-lightest: #ff8f8f;
+  --ifm-background-color: #f7f7f7;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-footer-background-color: #f1f1f1;
+  --ifm-heading-color: #111111;
+  --ifm-font-color-base: #161616;
+  --ifm-font-family-base: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --ifm-code-font-size: 92%;
+  --ifm-line-height-base: 1.75;
+  --ifm-global-radius: 20px;
+  --ifm-link-decoration: none;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f7f7f7;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar__brand {
+  gap: 0.75rem;
+}
+
+.navbar__brand .navbar__title,
+.navbar-sidebar__brand .navbar__title {
+  display: none;
+}
+
+.navbar__logo img {
+  height: 2rem;
+  width: auto;
+}
+
+.navbar-sidebar,
+.navbar-sidebar__brand,
+.navbar-sidebar__items {
+  background: #ffffff;
+}
+
+.navbar-sidebar__brand {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar-sidebar__items {
+  padding-top: 0.5rem;
+}
+
+.navbar-sidebar .menu__link {
+  color: #111111;
+}
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-doc-sidebar-container {
+  border-right-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-doc-markdown header + p,
+.theme-doc-markdown p {
+  color: #2d2d2d;
+}
+
+.pagination-nav {
+  display: none;
+}
+
+.button {
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.button--primary,
+.button--primary:link,
+.button--primary:visited {
+  color: #ffffff;
+  border-color: #ff5757;
+  background: #ff5757;
+}
+
+.button--primary:hover,
+.button--primary:focus,
+.button--primary:active {
+  color: #ffffff;
+  border-color: #e54c4c;
+  background: #e54c4c;
+}
+
+.button--secondary {
+  border: 1px solid #111111;
+  color: #111111;
+  background: #ffffff;
+}
+
+a {
+  color: #ff5757;
 }

@@ -1,0 +1,38 @@
+---
+id: donate
+title: 捐助
+sidebar_position: 4
+---
+
+import {donation} from '@site/src/data/siteData';
+
+# 捐助
+
+{donation.intro}
+
+<div>
+  👉 <a href={donation.donationPortalHref}><strong>{donation.donationPortalLabel}</strong></a>
+</div>
+
+{donation.recurringIntro}
+
+<ul>
+  <li>
+    <strong><a href={donation.oneTimeHref}>一次性捐助</a></strong>
+  </li>
+  <li>
+    <strong><a href={donation.recurringHref}>订阅制循环捐助</a></strong>
+  </li>
+  <li>
+    <strong><a href={donation.financialInfoHref}>财务公示</a></strong>
+  </li>
+</ul>
+
+## 隐私提示
+
+<div>
+  {donation.privacyNote}
+  <a href={donation.stripePrivacyHref}>参见 Stripe隐私条款</a>
+</div>
+
+{donation.emailNote}
